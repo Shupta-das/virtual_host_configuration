@@ -24,16 +24,39 @@ Create a file on the web server's root directory (e.g., htdocs in XAMPP) with re
 ### 2. Edit httpd-vhosts.conf:
 If you are using XAMPP on Windows, this file is typically located in the apache\conf\extra directory within the XAMPP installation (e.g., 'C:\xampp\apache\conf\extra\httpd-vhosts.conf'). Open the file in the editor with administrative permission and add the following instructions.<br/>
 ```
-      <VirtualHost *:80><br>
-            DocumentRoot "C:/xampp/htdocs/folder_name/file_name.php"<br/>
-            ServerName mywebsite.com<br/>
-      </VirtualHost>
+<VirtualHost *:80><br>
+    DocumentRoot "C:/xampp/htdocs/folder_name/file_name.php"<br/>
+    ServerName mywebsite.com<br/>
+</VirtualHost>
+```
+Also, ensure the inclusion of the following section for multiple domain names-
+```
+<VirtualHost *:80><br>
+    DocumentRoot "C:/xampp/htdocs/folder_name/file_name.php"<br/>
+    ServerAlias *.mywebsite.com<br/>
+</VirtualHost>
+
+```
+If icons are not showing when using a virtual host. Confirm that the <Directory> directives in your virtual host configuration are allowing access to the directory where your icon files are located. The 'Allow from all' directive should permit access.
+
+```
+<VirtualHost *>
+    DocumentRoot "C:\xampp\htdocs\folder_name"
+    ServerName example2.test
+    <Directory "C:\xampp\htdocs\folder_name">
+        Order Allow,Deny
+        Allow from all
+        AllowOverride all
+        Header set Access-Control-Allow-Origin "*"
+    </Directory>    
+</VirtualHost>
 ```
 Adjust the DocumentRoot and ServerName as needed.
 ### 3. Edit hosts File
 With administrator privileges, edit the 'C:\Windows\System32\drivers\etc\hosts' file using the following instructions.
 ```
-      127.0.0.1      mywebsite.com
+    127.0.0.1      mywebsite.com
+    127.0.0.1      something.mywebsite.com  
 ```
 ### 4. Restart Apache Server
 Restart the Apache server in XAMPP to apply the changes.
