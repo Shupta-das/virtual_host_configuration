@@ -18,16 +18,16 @@ Create a file on the web server's root directory (e.g., htdocs in XAMPP) with re
 ### 2. Edit httpd-vhosts.conf:
 If you are using XAMPP on Windows, this file is typically located in the apache\conf\extra directory within the XAMPP installation (e.g., 'C:\xampp\apache\conf\extra\httpd-vhosts.conf'). Open the file in the editor with administrative permission and add the following instructions.<br/>
 ```
-<VirtualHost *:80><br>
-    DocumentRoot "C:/xampp/htdocs/folder_name/file_name.php"<br/>
-    ServerName mywebsite.com<br/>
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/folder_name/file_name.php"
+    ServerName mywebsite.com
 </VirtualHost>
 ```
 Also, ensure the inclusion of the following section for multiple domain names-
 ```
-<VirtualHost *:80><br>
-    DocumentRoot "C:/xampp/htdocs/folder_name/file_name.php"<br/>
-    ServerAlias *.mywebsite.com<br/>
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/folder_name/file_name.php"
+    ServerAlias *.mywebsite.com
 </VirtualHost>
 
 ```
