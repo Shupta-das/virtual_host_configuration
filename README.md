@@ -23,7 +23,7 @@ If you are using XAMPP on Windows, this file is typically located in the apache\
     ServerName mywebsite.com
 </VirtualHost>
 ```
-Also, ensure the inclusion of the following section for multiple domain names-
+Also, ensure the inclusion of the following section for multiple domain names(e.g., mywebsite.com and profile.mywebsite.com)
 ```
 <VirtualHost *:80>
     DocumentRoot "C:/xampp/htdocs/folder_name/file_name.php"
@@ -31,9 +31,9 @@ Also, ensure the inclusion of the following section for multiple domain names-
 </VirtualHost>
 
 ```
-If icons are not showing when using a virtual host. Confirm that the <Directory> directives in your virtual host configuration are allowing access to the directory where your icon files are located. The 'Allow from all' directive should permit access.
+To resolve [Cross-Origin Resource Sharing (CORS) errors](https://www.contentstack.com/docs/developers/how-to-guides/understanding-and-resolving-cors-error)  add the necessary CORS headers to allow cross-origin requests to the specified directory. Set up the  `Access-Control-Allow-Origin` inside the <Directory> block which indicates to the browser that it's safe for content from any origin to make requests to the specified resource. The `Allow from all` directive should permit access. This directive allows access to the specified directory from any IP address ('all'). It effectively grants permission for requests to be made from any origin.  [Learn more about CORS](https://aws.amazon.com/what-is/cross-origin-resource-sharing/).
 
-```
+```'
 <VirtualHost *>
     DocumentRoot "C:\xampp\htdocs\folder_name"
     ServerName example2.test
