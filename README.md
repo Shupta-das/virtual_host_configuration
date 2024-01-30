@@ -45,7 +45,8 @@ To resolve [Cross-Origin Resource Sharing (CORS) errors](https://www.contentstac
     </Directory>    
 </VirtualHost>
 ```
-Adjust the DocumentRoot and ServerName as needed.
+Please note that while allowing any origin (*) can solve CORS issues during development, it's recommended to specify specific origins instead of using a wildcard for security reasons. For example `Header set Access-Control-Allow-Origin "http://allowed-origin.com" ` .
+Also adjust the DocumentRoot and ServerName as needed.
 ### 3. Edit hosts File
 With administrator privileges, edit the 'C:\Windows\System32\drivers\etc\hosts' file using the following instructions.
 ```
