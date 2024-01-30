@@ -1,6 +1,6 @@
 # Virtual Host Documentation for Windows
 
-## Overview-
+## Overview
 
 A virtual host is a method of hosting multiple domain names (or websites) on a single server. This is achieved by directing the incoming web traffic to different directories or locations on the server, based on the domain name requested by the user.
 
